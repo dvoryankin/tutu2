@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1>Railway Welcome</h1>
 
 <%= link_to 'Stations list', railway_stations_path %>
 
@@ -12,3 +12,9 @@
 
 <%= link_to 'first station', railway_station_path(1) %>
 
+<div>
+  <ul>
+    <li><%= link_to "Stations list", railway_stations_path %></li>
+    <li><%= link_to "Trains list", trains_path %></li>
+  </ul>
+</div>
