@@ -1,0 +1,19 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @railway_station.title
+- if @railway_station.routes.empty?
+  p
+    | Станция не входит ни в один маршрут
+- else
+  p
+    | Станция входит в следующие маршруты:
+  ul
+    - @railway_station.routes.each do |route|
+      li
+        = route.name
+= link_to 'Edit', edit_railway_station_path(@railway_station)
+|  |
+= link_to 'Back', railway_stations_path
