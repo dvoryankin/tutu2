@@ -20,5 +20,9 @@ train4 = Train.create(number: 888, current_station: rs2)
 route1 = Route.create(name: 'Moscow - Omsk')
 route2 = Route.create(name: 'Minsk - Riga')
 
+route3 = Route.create(name: 'test')
+route4 = Route.create(name: 'testttt')
+
+
 rs1.routes << route1
 rs3.routes << route2
