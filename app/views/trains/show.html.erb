@@ -3,6 +3,12 @@
 <p>
   <strong>Number:</strong>
   <%= @train.number %>
+  <br>
+  <strong>Current station:</strong>
+  <%= @train.current_station.title %>
+  <br>
+  <strong>Train route:</strong>
+  <%= @train.route %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
