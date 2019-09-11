@@ -6,11 +6,19 @@
   <br>
   <strong>Train numbers:</strong>
 
-  <% @str = [] %>
+  <% @trains = [] %>
   <% @route.trains.each do |train| %>
-    <% @str << "#{train.number}" %>
+    <% @trains << "#{train.number}" %>
   <% end %>
-  <%= p @str.join(', ')%>
+  <%= p @trains.join(', ')%>
+
+  <br>
+  <% @stations = [] %>
+  <strong>Route Stations:</strong>
+  <% @route.railway_stations.each do |s| %>
+    <% @stations << "#{s.title}" %>
+  <% end %>
+  <%= p @stations.join(' - ') %>
 </p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
