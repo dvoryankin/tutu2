@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: %i[show edit update destroy]
 
   # GET /tickets
   # GET /tickets.json
@@ -9,8 +11,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1
   # GET /tickets/1.json
-  def show
-  end
+  def show; end
 
   # GET /tickets/new
   def new
@@ -18,8 +19,7 @@ class TicketsController < ApplicationController
   end
 
   # GET /tickets/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tickets
   # POST /tickets.json
@@ -62,13 +62,14 @@ class TicketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ticket
-      @ticket = Ticket.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ticket_params
-      params.require(:ticket).permit(:number)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ticket
+    @ticket = Ticket.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ticket_params
+    params.require(:ticket).permit(:number)
+  end
 end
