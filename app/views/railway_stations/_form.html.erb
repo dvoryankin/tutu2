@@ -1,12 +1,12 @@
-<%= form_with(model: railway_station, local: true) do |form| %>
+<%= form_with(model: railway_station, local: true) do |f| %>
 <%= render 'common/errors', resource: @railway_station %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :railway_station_title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, id: :railway_station_title %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

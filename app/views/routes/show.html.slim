@@ -1,0 +1,32 @@
+p#notice
+  = notice
+p
+  strong'
+    | Route name:
+  = @route.name
+p
+  - if @route.railway_stations.empty?
+    = "No railway_stations on the route"
+  - else
+    - @stations = []
+    strong'
+      | Route Stations:
+    - @route.railway_stations.each do |s|
+      - @stations << "#{s.title}"
+    = @stations.join(' - ')
+p
+  strong' Train numbers:
+  - if @route.trains.empty?
+    = "No trains on the route"
+  - else
+    - @trains = []
+    - @route.trains.each do |train|
+      - @trains << "#{train.number}"
+    = @trains.join(', ')
+
+<br>
+= link_to 'Edit', edit_route_path(@route)
+|  |&nbsp
+= link_to 'Back', routes_path
+
+/ - binding.pry

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @route.name %>
+</p>
+
+<br>
+<p>
+  <% if @route.railway_stations.empty? %>
+    <%= "No railway_stations on the route" %>
+  <% else %>
+    <% @stations = [] %>
+    <strong>Route Stations:</strong>
+    <% @route.railway_stations.each do |s| %>
+      <% @stations << "#{s.title}" %>
+    <% end %>
+    <%= p @stations.join(' - ') %>
+  <% end %>
+</p>
+
+<br>
+
+<strong>Train numbers:</strong>
+<p>
+  <% if @route.trains.empty? %>
+    <%= "No trains on the route" %>
+  <% else %>
+    <% @trains = [] %>
+    <% @route.trains.each do |train| %>
+      <% @trains << "#{train.number}" %>
+    <% end %>
+    <%= p @trains.join(', ')%>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

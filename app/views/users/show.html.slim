@@ -1,8 +1,9 @@
 p#notice = notice
 
 p
-  strong Name:
+  strong' Name:
   = @user.name
+  / = link_to @user.name, edit_user_path(@user)
 
 => link_to 'Edit', edit_user_path(@user)
 '|

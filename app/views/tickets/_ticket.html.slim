@@ -1,0 +1,4 @@
+tr
+  td = link_to "#{ticket.number}", ticket
+  td = link_to 'Edit', edit_ticket_path(ticket)
+  td = link_to 'Destroy', ticket, data: { confirm: 'Are you sure?' }, method: :delete
