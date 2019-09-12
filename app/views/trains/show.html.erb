@@ -2,13 +2,15 @@
 
 <p>
   <strong>Number:</strong>
-  <%= @train.number %>
+  <%= link_to "#{@train.number}", @train%>
+  <br>
   <br>
   <strong>Current station:</strong>
-  <%= @train.current_station.title %>
+  <%= link_to "#{@train.current_station.title}", @train.current_station %>
+  <br>
   <br>
   <strong>Train route:</strong>
-  <%= @train.route %>
+  <%= link_to "#{@train.route.name}", @train.route %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |

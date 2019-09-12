@@ -1,39 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Route:</strong>
+  <strong>Наименование:</strong>
   <%= @route.name %>
 </p>
 
-<br>
+<p>
+  <strong>Станции в маршруте:</strong>
+</p>
+
 <p>
   <% if @route.railway_stations.empty? %>
-    <%= "No railway_stations on the route" %>
+    Нет станций в маршруте
   <% else %>
-    <% @stations = [] %>
-    <strong>Route Stations:</strong>
-    <% @route.railway_stations.each do |s| %>
-      <% @stations << "#{s.title}" %>
+  <ul>
+    <% @route.railway_stations.each do |station| %>
+      <li><%= station.title %></li>
     <% end %>
-    <%= p @stations.join(' - ') %>
-  <% end %>
+  </ul>
+<% end %>
 </p>
 
-<br>
+<p>
+  <strong>Поезда на маршруте:</strong>
+</p>
 
-<strong>Train numbers:</strong>
 <p>
   <% if @route.trains.empty? %>
-    <%= "No trains on the route" %>
+    Нет поездов на маршруте
   <% else %>
-    <% @trains = [] %>
+  <ul>
     <% @route.trains.each do |train| %>
-      <% @trains << "#{train.number}" %>
+      <li><%= train.number %></li>
     <% end %>
-    <%= p @trains.join(', ')%>
-  <% end %>
+  </ul>
+<% end %>
 </p>
 
-
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Редактировать', edit_route_path(@route) %> |
+<%= link_to 'Назад', routes_path %>
